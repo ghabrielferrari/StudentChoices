@@ -248,8 +248,10 @@ VerifyChoices()
 print("\nCarregando...")
 Thread.sleep(forTimeInterval: 4)
 print("  **************\n \n  **************")
-print("A segunda semana começou! Novos desafios e oportunidades surgem no caminho d\(pronums) \(NameStudent). Agora, mais do que nunca, é preciso equilíbrio entre estudos e vida social.")
-print("\(NameStudent) continua sua jornada universitária, e se depara com outra escolha: \n1. Iniciar projeto de estudos \n2. Ir para a festa da faculdade \n3. Estudar exageradamente no fim de semana para poder curtir a festa")
+print("""
+A segunda semana começou! Novos desafios e oportunidades surgem no caminho d\(pronums) \(NameStudent). Agora, mais do que nunca, é preciso equilíbrio entre estudos e vida social.")
+print("\(NameStudent) continua sua jornada universitária, e se depara com outra escolha: \n1. Iniciar projeto de estudos \n2. Ir para a festa da faculdade \n3. Estudar exageradamente no fim de semana para poder curtir a festa
+""")
 print("SEU FOCO: \(Life)")
 if let input = readLine(), let choice = Int(input){
     switch choice{
@@ -280,7 +282,9 @@ VerifyChoices()
 print("Carregando...")
 Thread.sleep(forTimeInterval: 4)
 print("  **************\n \n  **************")
-print("\(NameStudent) começa a sentir o peso da rotina acadêmica e percebe que algo não está certo. O cansaço bate forte, a cabeça dói, e a motivação parece ter sumido. Agora, é preciso tomar uma decisão difícil para lidar com essa fase: \n1. Tirar um dia de descanso para recuperar as energias e voltar com tudo \n2. Ignorar o cansaço e continuar estudando, afinal, não há tempo a perder \n3. Conversar com um amigo ou professor para buscar apoio e conselhos")
+print("""
+\(NameStudent) começa a sentir o peso da rotina acadêmica e percebe que algo não está certo. O cansaço bate forte, a cabeça dói, e a motivação parece ter sumido. Agora, é preciso tomar uma decisão difícil para lidar com essa fase: \n1. Tirar um dia de descanso para recuperar as energias e voltar com tudo \n2. Ignorar o cansaço e continuar estudando, afinal, não há tempo a perder \n3. Conversar com um amigo ou professor para buscar apoio e conselhos
+""")
 print("SEU FOCO: \(Life)")
 
 if let input = readLine(), let choice = Int(input){
@@ -309,7 +313,9 @@ if let input = readLine(), let choice = Int(input){
 print("Carregando...")
 Thread.sleep(forTimeInterval: 4)
 print("  **************\n \n  **************")
-print("\(NameStudent) está enfrentando dificuldades nos relacionamentos pessoais. Um desentendimento com um amigo próximo ou parceiro(a) começa a afetar seu foco e a pressão aumenta. Agora, é hora de tomar uma decisão difícil sobre como lidar com a situação: \n1. Tentar resolver a situação conversando e buscando uma solução pacífica \n2. Ignorar o problema e focar somente nos estudos, esperando que tudo se resolva por si mesmo \n3. Terminar a amizade ou relacionamento para focar 100% em seus objetivos acadêmicos")
+print("""
+\(NameStudent) está enfrentando dificuldades nos relacionamentos pessoais. Um desentendimento com um amigo próximo ou parceiro(a) começa a afetar seu foco e a pressão aumenta. Agora, é hora de tomar uma decisão difícil sobre como lidar com a situação: \n1. Tentar resolver a situação conversando e buscando uma solução pacífica \n2. Ignorar o problema e focar somente nos estudos, esperando que tudo se resolva por si mesmo \n3. Terminar a amizade ou relacionamento para focar 100% em seus objetivos acadêmicos
+""")
 print("SEU FOCO: \(Life)")
 
 if let input = readLine(), let choice = Int(input){
@@ -317,7 +323,7 @@ if let input = readLine(), let choice = Int(input){
         case 1:
             Choices = "Positivo"
             Thread.sleep(forTimeInterval: 2)
-            print("Resolveu o problema de forma saudável, melhorando o bem-estar emocional de \(NameStudent), ganhou foco.")
+            print("Resolveu o problema de forma saudável, melhorando o bem-estar emocional d\(pronums) \(NameStudent), ganhou foco.")
         case 2:
             Choices = "Negativo"
             Thread.sleep(forTimeInterval: 2)
@@ -337,8 +343,12 @@ VerifyChoices()
 
 Thread.sleep(forTimeInterval: 4)
 print("  **************\n \n  **************")
-print("Mais uma semana se inicia! Você está aguentando firme, superando cada desafio, e já está ficando expert em equilibrar os estudos com as adversidades. Vamos lá, \(NameStudent), o caminho não é fácil, mas o sucesso está logo ali. Hora de continuar sua jornada!")
-print("Uma proposta de estágio chegou até você, \(NameStudent)! Esta é a chance de ganhar experiência prática, mas também pode exigir que você se dedique mais ao trabalho do que aos estudos. Agora, é hora de tomar uma decisão importante: \n1. Aceitar a oportunidade de estágio e ganhar experiência prática, mas arriscar menos tempo para os estudos \n2. Recusar o estágio para focar integralmente nos estudos e nas notas \n3. Pedir um tempo para pensar, tentando equilibrar estágio e estudos de forma sábia")
+print("""
+Mais uma semana se inicia! Você está aguentando firme, superando cada desafio, e já está ficando expert em equilibrar os estudos com as adversidades. Vamos lá, \(NameStudent), o caminho não é fácil, mas o sucesso está logo ali. Hora de continuar sua jornada!
+""")
+print("""
+Uma proposta de estágio chegou até você, \(NameStudent)! Esta é a chance de ganhar experiência prática, mas também pode exigir que você se dedique mais ao trabalho do que aos estudos. Agora, é hora de tomar uma decisão importante: \n1. Aceitar a oportunidade de estágio e ganhar experiência prática, mas arriscar menos tempo para os estudos \n2. Recusar o estágio para focar integralmente nos estudos e nas notas \n3. Pedir um tempo para pensar, tentando equilibrar estágio e estudos de forma sábia
+""")
 print("SEU FOCO: \(Life)")
 
 if let input = readLine(), let choice = Int(input){
@@ -346,7 +356,7 @@ if let input = readLine(), let choice = Int(input){
         case 1:
             Choices = "Negativo"
             Thread.sleep(forTimeInterval: 2)
-            print("O estágio pode ser uma ótima chance de aprendizado, mas o tempo dedicado ao trabalho diminuiu o foco nos estudos de \(NameStudent), perdeu foco.")
+            print("O estágio pode ser uma ótima chance de aprendizado, mas o tempo dedicado ao trabalho diminuiu o foco nos estudos d\(pronums) \(NameStudent), perdeu foco.")
         case 2:
             Choices = "Positivo"
             Thread.sleep(forTimeInterval: 2)
@@ -365,7 +375,9 @@ VerifyChoices()
 
 Thread.sleep(forTimeInterval: 4)
 print("  **************\n \n  **************")
-print("Surge uma oportunidade para \(NameStudent): uma competição de programação está acontecendo no campus, com prêmios e reconhecimento. Você precisa decidir como agir: \n1. Participar da competição, tentar vencer e ganhar experiência prática de programação \n2. Focar nos estudos, mesmo que isso signifique perder a chance de competir e ganhar prêmios \n3. Participar da competição, mas com o objetivo de aprender e se divertir, sem pressão para vencer")
+print("""
+Surge uma oportunidade para \(NameStudent): uma competição de programação está acontecendo no campus, com prêmios e reconhecimento. Você precisa decidir como agir: \n1. Participar da competição, tentar vencer e ganhar experiência prática de programação \n2. Focar nos estudos, mesmo que isso signifique perder a chance de competir e ganhar prêmios \n3. Participar da competição, mas com o objetivo de aprender e se divertir, sem pressão para vencer
+""")
 print("SEU FOCO: \(Life)")
 
 if let input = readLine(), let choice = Int(input){
@@ -399,7 +411,9 @@ Boa sorte! 🚀
 
 Thread.sleep(forTimeInterval: 4)
 print("  **************\n \n  **************")
-print("\(NameStudent) se encontra diante da tão esperada p2. Essa prova pode determinar seu desempenho no semestre inteiro. O problema é que \(NameStudent) se sente um pouco inseguro, e agora precisa decidir como agir: \n1. Estudar intensamente durante a noite toda para garantir que esteja preparado, mesmo que isso afete o sono \n2. Revisar o conteúdo e descansar, confiando no seu conhecimento e no tempo de estudo já dedicado \n3. Fazer uma pausa e sair para dar uma caminhada, tentando aliviar a ansiedade antes da prova")
+print("""
+\(NameStudent) se encontra diante da tão esperada p2. Essa prova pode determinar seu desempenho no semestre inteiro. O problema é que \(NameStudent) se sente um pouco inseguro, e agora precisa decidir como agir: \n1. Estudar intensamente durante a noite toda para garantir que esteja preparado, mesmo que isso afete o sono \n2. Revisar o conteúdo e descansar, confiando no seu conhecimento e no tempo de estudo já dedicado \n3. Fazer uma pausa e sair para dar uma caminhada, tentando aliviar a ansiedade antes da prova
+""")
 print("SEU FOCO: \(Life)")
 
 if let input = readLine(), let choice = Int(input){
