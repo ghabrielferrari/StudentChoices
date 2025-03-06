@@ -1,3 +1,4 @@
+
 //
 //  main.swift
 //  Student Choices
@@ -137,12 +138,12 @@ print("\nSelecione o gênero: \n1. Masculino\n2. Feminino\n3. Outro")
                 auth = true
             default:
                 // se escolha não for 1,2,3 executa aqui
-                print("Insira os numerais 1,2 ou 3 referente ao genero desejado.")
+                print("Insira os numerais 1,2 ou 3 referente ao gênero desejado.")
         }
     }
         // verifico se o valor da entrada é numero int ou não default
         else {
-            print("Insira os numerais 1,2 ou 3 referente ao genero desejado.")
+            print("Insira os numerais 1,2 ou 3 referente ao gênero desejado.")
         }
     }
 
@@ -166,12 +167,12 @@ if let gen = Gender {
 // if para verificacao e definicao dos pronomes a partir do genero do personagem
 
 while Age <= 0 {
-    print ("\nQual é a sua Idade?")
+    print ("\nQual é a sua idade?")
     if let input = readLine(), !input.isEmpty, let idade = Int(input){
         // le o input, verifica se não é nulo, cria a variavel temp. idade int que recebe o input
         if idade < 16 {
         // faz validacao da idade
-            print("tem certeza de que você é um universitário?!")
+            print("Tem certeza de que você é um universitário?!")
         }else{
             Age = idade
         // adiciona para a variavel, o valor da variavel temp.
@@ -187,10 +188,10 @@ while University.isEmpty{
             // if para ler a linha (readLine)
             // verifica se a entrada não está vazia
             University = input
-            print("\nBem vindo a \(University), \(NameStudent)")
+            print("\nBem-vindo a \(University), \(NameStudent)")
         }
     else{
-        print("informe o nome da universidade")
+        print("Informe o nome da universidade")
     }
 }
 if let SelectedGen = Gender {
@@ -199,10 +200,10 @@ print("Os dados do seu personagem são: \n Nome: \(NameStudent);\n Idade: \(Age)
 
 Thread.sleep(forTimeInterval: 4)
 // pausa execucao por 6s
-print("  \n  **************\nRealizando Matricula...\n  **************")
+print("  \n  **************\nRealizando Matrícula...\n  **************")
 Thread.sleep(forTimeInterval: 4)
 // pausa execucao por 5s
-print("Matricula Realizada!!\n  **************")
+print("Matrícula Realizada!!\n  **************")
 // gender está com ! pois é um valor nil, o swift nao interpreta, para valores assim utilizar if let para verificacao do valor (como foi feito)
 // retorna dados
 // gender está com ! pois é um valor nil, o swift nao interpreta, para valores assim utilizar if let para verificacao do valor (como foi feito)
@@ -211,7 +212,7 @@ print("Matricula Realizada!!\n  **************")
 Thread.sleep(forTimeInterval: 4)
 print("""
 
-A primeira semana de aula se inicia, e o grande desafio d\(pronums) \(NameStudent) é sobreviver aos trotes. Daqui pra frente você terá que
+A primeira semana de aula se inicia, e o grande desafio d\(pronums) \(NameStudent) é sobreviver aos trotes. Daqui para frente você terá que
 decidir como será tal tragetória, definir qual tipo de alun\(pronums) quer se tornar e consequentemente quais notas tirar. Cada decisão pode
 impactar positivamente ou negativamente no seu foco (que será sempre atualizado ao tomar uma decisão).
 
@@ -221,7 +222,7 @@ Thread.sleep(forTimeInterval: 7)
 print("\n---------------------------------------------------\n")
 print("""
 
-\(NameStudent) chega na maior impolgação, e se depara com a dificil escolha:
+\(NameStudent) chega na maior empolgação, e se depara com a difícil escolha:
 
 1. Sair para beber com os calouros
 2. Participar da aula de fisica mega legal
@@ -231,7 +232,33 @@ print("""
 print("SEU FOCO: \(Life)")
 
 // ouve a entrada, cria "choice" que vai receber um Int (1,2,3)
-doingchoices()
+auth2 = false
+while !auth2{
+    if let input = readLine(), let choice = Int(input){
+        switch choice{
+            case 1:
+                Choices = "Positivo"
+                Thread.sleep(forTimeInterval: 4)
+                print("Se dedicou aos estudos, ganhou foco!")
+                auth2 = true
+            case 2:
+                Choices = "Negativo"
+                Thread.sleep(forTimeInterval: 4)
+                print("Não se dedicou aos estudos, perdeu foco!")
+                auth2 = true
+            case 3:
+                Choices = "Negativo"
+                Thread.sleep(forTimeInterval: 4)
+                print("Exagerou nos estudos, cuidado com seu mental, perdeu foco!")
+                auth2 = true
+        default:
+            print("Opção inválida. Escolha 1, 2 ou 3.")
+        }
+    } else{
+        print("Insira os numerais 1,2 ou 3 referente a alternativa desejada")
+    }
+}
+
 VerifyChoices()
 
 Thread.sleep(forTimeInterval: 2)
@@ -240,16 +267,43 @@ print("\n---------------------------------------------------\n")
 print("""
 
 \(NameStudent) durante a semana faz muit\(pronums)s amig\(pronums)s,
-que te chamam para cada rolê universitario de começo de semestre,
+que te chamam para cada rolê universitário de começo de semestre,
 \(NameStudent) decide:
 
-1. Ir para as festas e curtir o máximo
-2. Ir para a aula, descansar e aproveitar para revisar o conteudo
+1. Ir para as festas e curtir ao máximo
+2. Ir para a aula, descansar e aproveitar para revisar o conteúdo
 3. Ir para a aula, e tentar fazer novas amizades saindo para barzinho no final do dia
 
 """)
 print("SEU FOCO: \(Life)")
-doingchoices()
+
+auth2 = false
+while !auth2{
+    if let input = readLine(), let choice = Int(input){
+        switch choice{
+            case 1:
+                Choices = "Positivo"
+                Thread.sleep(forTimeInterval: 4)
+                print("Resolveu o problema de forma saudável, melhorando o bem-estar emocional d\(pronums) \(NameStudent), ganhou foco.")
+                auth2 = true
+            case 2:
+                Choices = "Negativo"
+                Thread.sleep(forTimeInterval: 4)
+                print("Ignorou os sentimentos e gerou mais frustração e aumentou o estresse, perdeu foco.")
+                auth2 = true
+            case 3:
+                Choices = "Negativo"
+                Thread.sleep(forTimeInterval: 4)
+                print("A decisão aliviou \(NameStudent) momentaneamente, mas também gerou arrependimento e perda de conexões importantes, afetando o bem-estar, perdeu foco.")
+                auth2 = true
+        default:
+            print("Opção inválida. Escolha 1, 2 ou 3.")
+        }
+    } else{
+        print("Insira os numerais 1,2 ou 3 referente a alternativa desejada")
+    }
+}
+
 VerifyChoices()
 
 Thread.sleep(forTimeInterval: 2)
@@ -257,17 +311,43 @@ print("\n---------------------------------------------------\n")
 print("""
 
 \(NameStudent) está morando nos arredores da \(University),
-sendo que foi combinado com que todos os finais de semana ele iria para casa de seus pais,
+sendo que foi combinado com que todos os finais de semana ele iria para a casa de seus pais,
 porém fica na maior indecisão:
 
 1. Ir para festas pois a noite é uma criança
-2. Ir para casa dos seus pais passar o final de semana se alimentando igual um ser humano de verdade
+2. Ir para casa dos seus pais passar o final de semana se alimentando igual a um ser humano de verdade
 3. Almoçar com amig\(pronums)s e no final da tarde ir para a casa dos pais
 
 """)
 print("SEU FOCO: \(Life)")
 
-doingchoices()
+auth2 = false
+while !auth2{
+    if let input = readLine(), let choice = Int(input){
+        switch choice{
+            case 1:
+                Choices = "Negativo"
+                Thread.sleep(forTimeInterval: 4)
+                print("O estágio pode ser uma ótima chance de aprendizado, mas o tempo dedicado ao trabalho diminuiu o foco nos estudos d\(pronums) \(NameStudent), perdeu foco.")
+                auth2 = true
+            case 2:
+                Choices = "Positivo"
+                Thread.sleep(forTimeInterval: 4)
+                print("Embora \(NameStudent) tenha perdido a oportunidade de ganhar experiência real no mercado de trabalho, ele se dedicou completamente aos estudos, ganhou foco.")
+                auth2 = true
+            case 3:
+                Choices = "Neutro"
+                Thread.sleep(forTimeInterval: 4)
+                print("Refletiu sobre a decisão que ajudou a tomar uma escolha mais equilibrada, preservando o foco e evitando decisões precipitadas, manteve foco.")
+                auth2 = true
+        default:
+            print("Opção inválida. Escolha 1, 2 ou 3.")
+        }
+    } else{
+        print("Insira os numerais 1,2 ou 3 referente a alternativa desejada")
+    }
+}
+
 VerifyChoices()
 
 // ideias: criar uma func para choices perca e ganho, chama-las direto no switch case poupando processamento.
@@ -288,7 +368,33 @@ equilíbrio entre estudos e vida social.
 print("SEU FOCO: \(Life)")
 auth2 = false
 
-doingchoices()
+auth2 = false
+while !auth2{
+    if let input = readLine(), let choice = Int(input){
+        switch choice{
+            case 1:
+                Choices = "Positivo"
+                Thread.sleep(forTimeInterval: 4)
+                print("Resolveu o problema de forma saudável, melhorando o bem-estar emocional d\(pronums) \(NameStudent), ganhou foco.")
+                auth2 = true
+            case 2:
+                Choices = "Negativo"
+                Thread.sleep(forTimeInterval: 4)
+                print("Ignorou os sentimentos e gerou mais frustração e aumentou o estresse, perdeu foco.")
+                auth2 = true
+            case 3:
+                Choices = "Negativo"
+                Thread.sleep(forTimeInterval: 4)
+                print("A decisão aliviou \(NameStudent) momentaneamente, mas também gerou arrependimento e perda de conexões importantes, afetando o bem-estar, perdeu foco.")
+                auth2 = true
+        default:
+            print("Opção inválida. Escolha 1, 2 ou 3.")
+        }
+    } else{
+        print("Insira os numerais 1,2 ou 3 referente a alternativa desejada")
+    }
+}
+
 VerifyChoices()
 
 Thread.sleep(forTimeInterval: 2)
@@ -305,7 +411,33 @@ parece ter sumido. Agora, é preciso tomar uma decisão difícil para lidar com 
 """)
 print("SEU FOCO: \(Life)")
 
-doingchoices()
+auth2 = false
+while !auth2{
+    if let input = readLine(), let choice = Int(input){
+        switch choice{
+            case 1:
+                Choices = "Positivo"
+                Thread.sleep(forTimeInterval: 4)
+                print("Resolveu o problema de forma saudável, melhorando o bem-estar emocional d\(pronums) \(NameStudent), ganhou foco.")
+                auth2 = true
+            case 2:
+                Choices = "Negativo"
+                Thread.sleep(forTimeInterval: 4)
+                print("Ignorou os sentimentos e gerou mais frustração e aumentou o estresse, perdeu foco.")
+                auth2 = true
+            case 3:
+                Choices = "Positivo"
+                Thread.sleep(forTimeInterval: 4)
+                print("A decisão aliviou \(NameStudent) momentaneamente, mas também gerou arrependimento e perda de conexões importantes, afetando o bem-estar, perdeu foco.")
+                auth2 = true
+        default:
+            print("Opção inválida. Escolha 1, 2 ou 3.")
+        }
+    } else{
+        print("Insira os numerais 1,2 ou 3 referente a alternativa desejada")
+    }
+}
+
 VerifyChoices()
 
 Thread.sleep(forTimeInterval: 2)
@@ -316,13 +448,39 @@ print("""
 seu foco e a pressão aumenta. Agora, é hora de tomar uma decisão difícil sobre como lidar com a situação:
 
 1. Tentar resolver a situação conversando e buscando uma solução pacífica
-2. Ignorar o problema e focar somente nos estudos, esperando que tudo se resolva por si mesmo.
+2. Ignorar o problema e focar somente nos estudos, esperando que tudo se resolva por si mesmo
 3. Terminar a amizade ou relacionamento para focar 100% em seus objetivos acadêmicos
 
 """)
 print("SEU FOCO: \(Life)")
 
-doingchoices()
+auth2 = false
+while !auth2{
+    if let input = readLine(), let choice = Int(input){
+        switch choice{
+            case 1:
+                Choices = "Positivo"
+                Thread.sleep(forTimeInterval: 4)
+                print("Resolveu o problema de forma saudável, melhorando o bem-estar emocional d\(pronums) \(NameStudent), ganhou foco.")
+                auth2 = true
+            case 2:
+                Choices = "Neutro"
+                Thread.sleep(forTimeInterval: 4)
+                print("Ignorou os sentimentos e gerou mais frustração e aumentou o estresse, perdeu foco.")
+                auth2 = true
+            case 3:
+                Choices = "Negativo"
+                Thread.sleep(forTimeInterval: 4)
+                print("A decisão aliviou \(NameStudent) momentaneamente, mas também gerou arrependimento e perda de conexões importantes, afetando o bem-estar, perdeu foco.")
+                auth2 = true
+        default:
+            print("Opção inválida. Escolha 1, 2 ou 3.")
+        }
+    } else{
+        print("Insira os numerais 1,2 ou 3 referente a alternativa desejada")
+    }
+}
+
 VerifyChoices()
 
 Thread.sleep(forTimeInterval: 2)
@@ -345,7 +503,34 @@ dedique mais ao trabalho do que aos estudos. Agora, é hora de tomar uma decisã
 """)
 print("SEU FOCO: \(Life)")
 
-doingchoices()
+
+auth2 = false
+while !auth2{
+    if let input = readLine(), let choice = Int(input){
+        switch choice{
+            case 1:
+                Choices = "Neutro"
+                Thread.sleep(forTimeInterval: 4)
+                print("Resolveu o problema de forma saudável, melhorando o bem-estar emocional d\(pronums) \(NameStudent), ganhou foco.")
+                auth2 = true
+            case 2:
+                Choices = "Positivo"
+                Thread.sleep(forTimeInterval: 4)
+                print("Ignorou os sentimentos e gerou mais frustração e aumentou o estresse, perdeu foco.")
+                auth2 = true
+            case 3:
+                Choices = "Positivo"
+                Thread.sleep(forTimeInterval: 4)
+                print("A decisão aliviou \(NameStudent) momentaneamente, mas também gerou arrependimento e perda de conexões importantes, afetando o bem-estar, perdeu foco.")
+                auth2 = true
+        default:
+            print("Opção inválida. Escolha 1, 2 ou 3.")
+        }
+    } else{
+        print("Insira os numerais 1,2 ou 3 referente a alternativa desejada")
+    }
+}
+
 VerifyChoices()
 
 Thread.sleep(forTimeInterval: 2)
@@ -363,7 +548,33 @@ decidir como agir:
 print("SEU FOCO: \(Life)")
 auth2 = false
 
-doingchoices()
+auth2 = false
+while !auth2{
+    if let input = readLine(), let choice = Int(input){
+        switch choice{
+            case 1:
+                Choices = "Positivo"
+                Thread.sleep(forTimeInterval: 4)
+                print("Resolveu o problema de forma saudável, melhorando o bem-estar emocional d\(pronums) \(NameStudent), ganhou foco.")
+                auth2 = true
+            case 2:
+                Choices = "Neutro"
+                Thread.sleep(forTimeInterval: 4)
+                print("Ignorou os sentimentos e gerou mais frustração e aumentou o estresse, perdeu foco.")
+                auth2 = true
+            case 3:
+                Choices = "Positivo"
+                Thread.sleep(forTimeInterval: 4)
+                print("A decisão aliviou \(NameStudent) momentaneamente, mas também gerou arrependimento e perda de conexões importantes, afetando o bem-estar, perdeu foco.")
+                auth2 = true
+        default:
+            print("Opção inválida. Escolha 1, 2 ou 3.")
+        }
+    } else{
+        print("Insira os numerais 1,2 ou 3 referente a alternativa desejada")
+    }
+}
+
 VerifyChoices()
 
 print("\n---------------------------------------------------\n")
@@ -389,7 +600,34 @@ O problema é que \(NameStudent) se sente um pouco inseguro, e agora precisa dec
 """)
 print("SEU FOCO: \(Life)")
 
-doingchoices()
+
+auth2 = false
+while !auth2{
+    if let input = readLine(), let choice = Int(input){
+        switch choice{
+            case 1:
+                Choices = "Negativo"
+                Thread.sleep(forTimeInterval: 4)
+                print("Resolveu o problema de forma saudável, melhorando o bem-estar emocional d\(pronums) \(NameStudent), ganhou foco.")
+                auth2 = true
+            case 2:
+                Choices = "Positivo"
+                Thread.sleep(forTimeInterval: 4)
+                print("Ignorou os sentimentos e gerou mais frustração e aumentou o estresse, perdeu foco.")
+                auth2 = true
+            case 3:
+                Choices = "Neutro"
+                Thread.sleep(forTimeInterval: 4)
+                print("A decisão aliviou \(NameStudent) momentaneamente, mas também gerou arrependimento e perda de conexões importantes, afetando o bem-estar, perdeu foco.")
+                auth2 = true
+        default:
+            print("Opção inválida. Escolha 1, 2 ou 3.")
+        }
+    } else{
+        print("Insira os numerais 1,2 ou 3 referente a alternativa desejada")
+    }
+}
+
 VerifyChoices()
 print("\n---------------------------------------------------\n")
 Thread.sleep(forTimeInterval: 2)
@@ -401,8 +639,8 @@ print("""
 A última semana do semestre está começando, e \(NameStudent) percebe que ainda não teve muitas interações com outras pessoas da sala. O tempo
 para criar laços está se esgotando. Nesse momento, ele:
 
-1. Prefere ficar sozinho e seguir sua rotina como de costume.
-2. Decide vencer a timidez e puxar assunto com alguém.
+1. Prefere ficar sozinho e seguir sua rotina como de costume
+2. Decide vencer a timidez e puxar assunto com alguém
 
 """)
 print("SEU FOCO: \(Life)")
@@ -461,9 +699,9 @@ if  Answer1 == "estudar"{    // final bom
 
 ---------------------------------------------------
 
-Parabéns!
-Suas escolhas foram bem pensadas e \(NameStudent) conseguirá ter um próximo semestre tranquilo,além de ter tirado boas notas em
-suas avaliações.
+🎉 PARABÉNS!
+Suas escolhas foram bem pensadas e \(NameStudent) conseguirá ter um próximo semestre tranquilo, além de ter tirado boas notas em
+suas avaliações. 😃
 
 ---------------------------------------------------
 
@@ -505,8 +743,8 @@ print("""
        
 ---------------------------------------------------
 
-Você falhou!
-Suas escolhas fazem com que reprove no semestre.
+❌ Você falhou!
+Suas escolhas fazem com que reprove no semestre. 😢
 
 ---------------------------------------------------
        
@@ -518,9 +756,9 @@ if Answer2 == "estudar"{
 
 ---------------------------------------------------
 
-PARABÉNS !!!
+🎉 PARABÉNS !!!
 Você conseguiu sobreviver ao seu primeiro semestre!
-Mas tenha escolhas melhores no proximo semestre.
+Mas tenha escolhas melhores no proximo semestre. 😊
 
 ---------------------------------------------------
 
