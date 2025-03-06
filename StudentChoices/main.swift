@@ -45,6 +45,10 @@ func LifeGain() {
     // retorno Life
 }
 
+func keepLife() {
+    print("Você manteve seus pontos de foco, seu foco atual é: \(Life)")
+}
+
 // -> (retorno) int = tipo de retorno que dara
 // como essa funcao nao retorna nada apenas printa não é necessario ->
 // criacao de funcao para o final do jogo por morte sem vidas
@@ -66,24 +70,36 @@ func VerifyChoices (){
     else if Life < 5, Choices == "Positivo" {
         LifeGain()
     }
+    else {
+        keepLife()
+    }
     
     EndGame()
 }
 
 // definindo uma funcao de algo repetitivo que faz a classificacao e validacao dos dados coletados a partir das respostas
 func doingchoices (){
+  // sempre que iniciar a func auth2 = false, para existir a validacao
+auth2 = false
+while !auth2{
     if let input = readLine(), let choice = Int(input){
-        switch choice{
-        case 1:
+      switch choice{
+          case 1:
             Choices = "Negativo"
-        case 2:
+            auth2 = true
+          case 2:
             Choices = "Positivo"
-        case 3:
+            auth2 = true
+          case 3:
             Choices = "Neutro"
-        default:
-            print("Insira os numerais 1,2 ou 3 referente a alternativa desejada")
-        }
+            auth2 = true
+      default:
+        print("Insira os numerais 1,2 ou 3 referente a alternativa desejada")
+      }
+    }else{
+      print("Insira os numerais 1,2 ou 3 referente a alternativa desejada")
     }
+  }
 }
 
 // recepcao nome personagem e validacao
@@ -181,9 +197,9 @@ if let SelectedGen = Gender {
 print("Os dados do seu personagem são: \n Nome: \(NameStudent);\n Idade: \(Age);\n Gênero: \(SelectedGen);\n Universidade: \(University).")
 }
 
-Thread.sleep(forTimeInterval: 6)
+Thread.sleep(forTimeInterval: 4)
 // pausa execucao por 6s
-print("  \n**************\nRealizando Matricula...\n  **************")
+print("  \n  **************\nRealizando Matricula...\n  **************")
 Thread.sleep(forTimeInterval: 4)
 // pausa execucao por 5s
 print("Matricula Realizada!!\n  **************")
@@ -195,67 +211,58 @@ print("Matricula Realizada!!\n  **************")
 Thread.sleep(forTimeInterval: 4)
 print("""
 
-A primeira semana de aula se inicia, e o grande desafio d\(pronums) \(NameStudent) é sobreviver aos trotes.
-Daqui pra frente você terá que decidir como será tal tragetória,
-definir qual tipo de alun\(pronums) quer se tornar e consequentemente quais notas tirar.
-Cada decisão pode impactar positivamente ou negativamente no seu foco
-(que será sempre atualizado ao tomar uma decisão).
+A primeira semana de aula se inicia, e o grande desafio d\(pronums) \(NameStudent) é sobreviver aos trotes. Daqui pra frente você terá que
+decidir como será tal tragetória, definir qual tipo de alun\(pronums) quer se tornar e consequentemente quais notas tirar. Cada decisão pode
+impactar positivamente ou negativamente no seu foco (que será sempre atualizado ao tomar uma decisão).
 
 """)
 // """ para multi line string
-Thread.sleep(forTimeInterval: 4)
-print("  **************\n \n  **************")
+Thread.sleep(forTimeInterval: 7)
+print("\n---------------------------------------------------\n")
 print("""
 
-\(NameStudent) chega na maior impolgação, e se depara com a dificil escolha: \n1. Sair para beber com os calouros \n2. Participar da aula de fisica mega legal \n3. Ver a aula e depois sair para beber")
+\(NameStudent) chega na maior impolgação, e se depara com a dificil escolha:
+
+1. Sair para beber com os calouros
+2. Participar da aula de fisica mega legal
+3. Ver a aula e depois sair para beber
 
 """)
 print("SEU FOCO: \(Life)")
 
 // ouve a entrada, cria "choice" que vai receber um Int (1,2,3)
-while !auth2{
-    if let input = readLine(), let choice = Int(input){
-        switch choice{
-            case 1:
-                Choices = "Negativo"
-                auth2 = true
-            case 2:
-                Choices = "Positivo"
-                auth2 = true
-            case 3:
-                Choices = "Neutro"
-                auth2 = true
-        default:
-            print("Insira os numerais 1,2 ou 3 referente a alternativa desejada")
-            
-        }
-    }else{
-        print("Insira os numerais 1,2 ou 3 referente a alternativa desejada")
-    }
-
-}
+doingchoices()
 VerifyChoices()
 
-Thread.sleep(forTimeInterval: 4)
+Thread.sleep(forTimeInterval: 2)
+print("\n---------------------------------------------------\n")
+
 print("""
 
 \(NameStudent) durante a semana faz muit\(pronums)s amig\(pronums)s,
 que te chamam para cada rolê universitario de começo de semestre,
-\(NameStudent) decide: \n1. Ir para as festas e curtir o máximo \n2. Ir para a aula, descansar e aproveitar para revisar o conteudo \n3. Ir para
-a aula, e tentar fazer novas amizades saindo para barzinho no final do dia
+\(NameStudent) decide:
+
+1. Ir para as festas e curtir o máximo
+2. Ir para a aula, descansar e aproveitar para revisar o conteudo
+3. Ir para a aula, e tentar fazer novas amizades saindo para barzinho no final do dia
 
 """)
 print("SEU FOCO: \(Life)")
 doingchoices()
 VerifyChoices()
 
-Thread.sleep(forTimeInterval: 4)
+Thread.sleep(forTimeInterval: 2)
+print("\n---------------------------------------------------\n")
 print("""
 
 \(NameStudent) está morando nos arredores da \(University),
 sendo que foi combinado com que todos os finais de semana ele iria para casa de seus pais,
-porém fica na maior indecisão: \n1. Ir para festas pois a noite é uma criança \n2. Ir para casa dos seus pais passar o final de semana se
-alimentando igual um ser humano de verdade \n3. Almoçar com amig\(pronums)s e no final da tarde ir para a casa dos pais
+porém fica na maior indecisão:
+
+1. Ir para festas pois a noite é uma criança
+2. Ir para casa dos seus pais passar o final de semana se alimentando igual um ser humano de verdade
+3. Almoçar com amig\(pronums)s e no final da tarde ir para a casa dos pais
 
 """)
 print("SEU FOCO: \(Life)")
@@ -265,112 +272,61 @@ VerifyChoices()
 
 // ideias: criar uma func para choices perca e ganho, chama-las direto no switch case poupando processamento.
 
-Thread.sleep(forTimeInterval: 4)
-print("  **************\n \n  **************")
+Thread.sleep(forTimeInterval: 2)
+print("\n---------------------------------------------------\n")
 print("""
 
 A segunda semana começou! Novos desafios e oportunidades surgem no caminho d\(pronums) \(NameStudent). Agora, mais do que nunca, é preciso
-equilíbrio entre estudos e vida social.")
-print("\(NameStudent) continua sua jornada universitária, e se depara com outra escolha: \n1. Iniciar projeto de estudos \n2. Ir para a festa da
-faculdade \n3. Estudar exageradamente no fim de semana para poder curtir a festa
+equilíbrio entre estudos e vida social.
+\(NameStudent) continua sua jornada universitária, e se depara com outra escolha:
+
+1. Iniciar projeto de estudos
+2. Ir para a festa da faculdade
+3. Estudar exageradamente no fim de semana para poder curtir a festa
 
 """)
 print("SEU FOCO: \(Life)")
-if let input = readLine(), let choice = Int(input){
-    switch choice{
-        case 1:
-            Choices = "Positivo"
-            Thread.sleep(forTimeInterval: 2)
-            print("Se dedicou aos estudos, ganhou foco!")
-        case 2:
-            Choices = "Negativo"
-            Thread.sleep(forTimeInterval: 2)
-            print("Não se dedicou aos estudos, perdeu foco!")
-        case 3:
-            Choices = "Negativo"
-            Thread.sleep(forTimeInterval: 2)
-            print("Exagerou nos estudos, cuidado com seu mental, perdeu foco!")
-    default:
-        print("Opção inválida. Escolha 1, 2 ou 3.")
-    }
-} else{
-    print("Insira os numerais 1,2 ou 3 referente a alternativa desejada")
-}
+auth2 = false
 
+doingchoices()
 VerifyChoices()
 
-Thread.sleep(forTimeInterval: 4)
-print("  **************\n \n  **************")
+Thread.sleep(forTimeInterval: 2)
+print("\n---------------------------------------------------\n")
 print("""
 
 \(NameStudent) começa a sentir o peso da rotina acadêmica e percebe que algo não está certo. O cansaço bate forte, a cabeça dói, e a motivação
-parece ter sumido. Agora, é preciso tomar uma decisão difícil para lidar com essa fase: \n1. Tirar um dia de descanso para recuperar as energias
-e voltar com tudo \n2. Ignorar o cansaço e continuar estudando, afinal, não há tempo a perder \n3. Conversar com um amigo ou professor para
-buscar apoio e conselhos
+parece ter sumido. Agora, é preciso tomar uma decisão difícil para lidar com essa fase:
+
+1. Tirar um dia de descanso para recuperar as energias e voltar com tudo
+2. Ignorar o cansaço e continuar estudando, afinal, não há tempo a perder
+3. Conversar com um amigo ou professor para buscar apoio e conselhos
 
 """)
 print("SEU FOCO: \(Life)")
 
-if let input = readLine(), let choice = Int(input){
-    switch choice{
-        case 1:
-            Choices = "Neutro"
-            Thread.sleep(forTimeInterval: 1)
-            print("O descanso não avançou nos estudos, mas evitou desgaste excessivo, manteve o foco")
-        case 2:
-            Choices = "Negativo"
-            Thread.sleep(forTimeInterval: 1)
-            print("Forçou nos estudos, seu mental está com problemas, perdeu foco.")
-        case 3:
-            Choices = "Positivo"
-            Thread.sleep(forTimeInterval: 1)
-            print("Buscou apoio ajuda a aliviar a pressão e recuperou motivação, ganhou foco.")
-    default:
-        print("Opção inválida. Escolha 1, 2 ou 3.")
-    }
-} else{
-    print("Insira os numerais 1,2 ou 3 referente a alternativa desejada")
-}
-
+doingchoices()
 VerifyChoices()
 
-Thread.sleep(forTimeInterval: 4)
-print("  **************\n \n  **************")
+Thread.sleep(forTimeInterval: 2)
+print("\n---------------------------------------------------\n")
 print("""
 
 \(NameStudent) está enfrentando dificuldades nos relacionamentos pessoais. Um desentendimento com um amigo próximo ou parceiro(a) começa a afetar
-seu foco e a pressão aumenta. Agora, é hora de tomar uma decisão difícil sobre como lidar com a situação: \n1. Tentar resolver a situação
-conversando e buscando uma solução pacífica \n2. Ignorar o problema e focar somente nos estudos, esperando que tudo se resolva por si mesmo \n3.
-Terminar a amizade ou relacionamento para focar 100% em seus objetivos acadêmicos
+seu foco e a pressão aumenta. Agora, é hora de tomar uma decisão difícil sobre como lidar com a situação:
+
+1. Tentar resolver a situação conversando e buscando uma solução pacífica
+2. Ignorar o problema e focar somente nos estudos, esperando que tudo se resolva por si mesmo.
+3. Terminar a amizade ou relacionamento para focar 100% em seus objetivos acadêmicos
 
 """)
 print("SEU FOCO: \(Life)")
 
-if let input = readLine(), let choice = Int(input){
-    switch choice{
-        case 1:
-            Choices = "Positivo"
-            Thread.sleep(forTimeInterval: 2)
-            print("Resolveu o problema de forma saudável, melhorando o bem-estar emocional d\(pronums) \(NameStudent), ganhou foco.")
-        case 2:
-            Choices = "Negativo"
-            Thread.sleep(forTimeInterval: 2)
-            print("Ignorou os sentimentos e gerou mais frustração e aumentou o estresse, perdeu foco.")
-        case 3:
-            Choices = "Negativo"
-            Thread.sleep(forTimeInterval: 2)
-            print("A decisão aliviou \(NameStudent) momentaneamente, mas também gerou arrependimento e perda de conexões importantes, afetando o bem-estar, perdeu foco.")
-    default:
-        print("Opção inválida. Escolha 1, 2 ou 3.")
-    }
-} else{
-    print("Insira os numerais 1,2 ou 3 referente a alternativa desejada")
-}
+doingchoices()
 VerifyChoices()
 
-
-Thread.sleep(forTimeInterval: 4)
-print("  **************\n \n  **************")
+Thread.sleep(forTimeInterval: 2)
+print("\n---------------------------------------------------\n")
 print("""
 
 Mais uma semana se inicia! Você está aguentando firme, superando cada desafio, e já está ficando expert em equilibrar os estudos com as
@@ -380,70 +336,38 @@ adversidades. Vamos lá, \(NameStudent), o caminho não é fácil, mas o sucesso
 print("""
 
 Uma proposta de estágio chegou até você, \(NameStudent)! Esta é a chance de ganhar experiência prática, mas também pode exigir que você se
-dedique mais ao trabalho do que aos estudos. Agora, é hora de tomar uma decisão importante: \n1. Aceitar a oportunidade de estágio e ganhar
-experiência prática, mas arriscar menos tempo para os estudos \n2. Recusar o estágio para focar integralmente nos estudos e nas notas \n3. Pedir
-um tempo para pensar, tentando equilibrar estágio e estudos de forma sábia
+dedique mais ao trabalho do que aos estudos. Agora, é hora de tomar uma decisão importante:
+
+1. Aceitar a oportunidade de estágio e ganhar experiência prática, mas arriscar menos tempo para os estudos
+2. Recusar o estágio para focar integralmente nos estudos e nas notas
+3. Pedir um tempo para pensar, tentando equilibrar estágio e estudos de forma sábia
 
 """)
 print("SEU FOCO: \(Life)")
 
-if let input = readLine(), let choice = Int(input){
-    switch choice{
-        case 1:
-            Choices = "Negativo"
-            Thread.sleep(forTimeInterval: 2)
-            print("O estágio pode ser uma ótima chance de aprendizado, mas o tempo dedicado ao trabalho diminuiu o foco nos estudos d\(pronums) \(NameStudent), perdeu foco.")
-        case 2:
-            Choices = "Positivo"
-            Thread.sleep(forTimeInterval: 2)
-            print("Embora \(NameStudent) tenha perdido a oportunidade de ganhar experiência real no mercado de trabalho, ele se dedicou completamente aos estudos, ganhou foco.")
-        case 3:
-            Choices = "Neutro"
-            Thread.sleep(forTimeInterval: 2)
-            print("Refletiu sobre a decisão que ajudou a tomar uma escolha mais equilibrada, preservando o foco e evitando decisões precipitadas, manteve foco.")
-    default:
-        print("Opção inválida. Escolha 1, 2 ou 3.")
-    }
-} else{
-    print("Insira os numerais 1,2 ou 3 referente a alternativa desejada")
-}
+doingchoices()
 VerifyChoices()
 
-Thread.sleep(forTimeInterval: 4)
-print("  **************\n \n  **************")
+Thread.sleep(forTimeInterval: 2)
+print("\n---------------------------------------------------\n")
 print("""
 
 Surge uma oportunidade para \(NameStudent): uma competição de programação está acontecendo no campus, com prêmios e reconhecimento. Você precisa
-decidir como agir: \n1. Participar da competição, tentar vencer e ganhar experiência prática de programação \n2. Focar nos estudos, mesmo que
-isso signifique perder a chance de competir e ganhar prêmios \n3. Participar da competição, mas com o objetivo de aprender e se divertir, sem
-pressão para vencer
+decidir como agir:
+
+1. Participar da competição, tentar vencer e ganhar experiência prática de programação
+2. Focar nos estudos, mesmo que isso signifique perder a chance de competir e ganhar prêmios
+3. Participar da competição, mas com o objetivo de aprender e se divertir, sem pressão para vencer
 
 """)
 print("SEU FOCO: \(Life)")
-while !auth2{
-if let input = readLine(), let choice = Int(input){
-        switch choice{
-            case 1:
-                Choices = "Positivo"
-                Thread.sleep(forTimeInterval: 2)
-            print("\(NameStudent) participou da competição, ganhou experiência valiosa em programação e se destacou, ganhou foco.")
-            case 2:
-                Choices = "Neutro"
-                Thread.sleep(forTimeInterval: 2)
-            print("Por mais que \(NameStudent) tenha perdido a chance de competir, ele manteve o foco nos estudos e continuou com seu progresso acadêmico, manteve foco.")
-            case 3:
-                Choices = "Neutro"
-                Thread.sleep(forTimeInterval: 2)
-            print("\(NameStudent) participou da competição e aprendeu novas técnicas de programação, aproveitando para se divertir sem a pressão de vencer.")
-        default:
-            print("Opção inválida. Escolha 1, 2 ou 3.")
-        }
-    } else{
-        print("Insira os numerais 1,2 ou 3 referente a alternativa desejada")
-    }
-}
+auth2 = false
 
+doingchoices()
 VerifyChoices()
+
+print("\n---------------------------------------------------\n")
+Thread.sleep(forTimeInterval: 2)
 
 print("""
 Atenção, \(NameStudent)!
@@ -451,51 +375,34 @@ A p2 está chegando! Prepare-se bem, revise o conteúdo e mostre tudo o que apre
 Boa sorte! 🚀
 """)
 
-Thread.sleep(forTimeInterval: 4)
-print("  **************\n \n  **************")
+print("\n---------------------------------------------------\n")
+Thread.sleep(forTimeInterval: 2)
 print("""
 
-\(NameStudent) se encontra diante da tão esperada p2. Essa prova pode determinar seu desempenho no semestre inteiro. O problema é que
-\(NameStudent) se sente um pouco inseguro, e agora precisa decidir como agir: \n1. Estudar intensamente durante a noite toda para garantir que
-esteja preparado, mesmo que isso afete o sono \n2. Revisar o conteúdo e descansar, confiando no seu conhecimento e no tempo de estudo já dedicado
-\n3. Fazer uma pausa e sair para dar uma caminhada, tentando aliviar a ansiedade antes da prova
+\(NameStudent) se encontra diante da tão esperada p2. Essa prova pode determinar seu desempenho no semestre inteiro.
+O problema é que \(NameStudent) se sente um pouco inseguro, e agora precisa decidir como agir:
+
+1. Estudar intensamente durante a noite toda para garantir que esteja preparado, mesmo que isso afete o sono
+2. Revisar o conteúdo e descansar, confiando no seu conhecimento e no tempo de estudo já dedicado
+3. Fazer uma pausa e sair para dar uma caminhada, tentando aliviar a ansiedade antes da prova
 
 """)
 print("SEU FOCO: \(Life)")
 
-while !auth2{
-if let input = readLine(), let choice = Int(input){
-        switch choice{
-            case 1:
-                Choices = "Negativo"
-                Thread.sleep(forTimeInterval: 2)
-                print("Embora \(NameStudent) tenha optado por estudar mais, a falta de sono diminuiu sua concentração e o desempenho na prova, perdeu foco.")
-            case 2:
-                Choices = "Neutro"
-                Thread.sleep(forTimeInterval: 2)
-                print("O descanso adequado ajudou a manter a mente fresca e \(NameStudent) fez a prova com mais clareza e concentração, manteve foco.")
-            case 3:
-                Choices = "Neutro"
-                Thread.sleep(forTimeInterval: 2)
-                print("A caminhada ajudou a aliviar a ansiedade e melhorou a concentração, permitindo que \(NameStudent) retornasse aos estudos com mais clareza mental, manteve foco.")
-        default:
-            print("Opção inválida. Escolha 1, 2 ou 3.")
-        }
-    } else{
-        print("Insira os numerais 1,2 ou 3 referente a alternativa desejada")
-    }
-}
-
+doingchoices()
 VerifyChoices()
-
+print("\n---------------------------------------------------\n")
 Thread.sleep(forTimeInterval: 2)
+
 while !authquestion {
 authquestion = false
 print("""
 
 A última semana do semestre está começando, e \(NameStudent) percebe que ainda não teve muitas interações com outras pessoas da sala. O tempo
-para criar laços está se esgotando. Nesse momento, ele:\n1. Prefere ficar sozinho e seguir sua rotina como de costume.\n2. Decide vencer a
-timidez e puxar assunto com alguém.
+para criar laços está se esgotando. Nesse momento, ele:
+
+1. Prefere ficar sozinho e seguir sua rotina como de costume.
+2. Decide vencer a timidez e puxar assunto com alguém.
 
 """)
 print("SEU FOCO: \(Life)")
@@ -511,40 +418,36 @@ if let input = readLine(), let x = Int(input){
      default:
         print("Valor inválido,digite 1 ou 2 para responder")
       }
-    } else{
-        print("Valor inválido,digite 1 ou 2 para responder")
-    }
+} else{
+    print("Valor inválido,digite 1 ou 2 para responder")
+}
 VerifyChoices()
 
-
-Thread.sleep(forTimeInterval: 2)
-print("""
-
-Tudo ficou calmo por um tempo mas a p3 está cada vez mais perto então chegou a hora de tomar sua decisão
-Essa matéria além de entediante é uma das mais complicadas do seu semestre
-Pense com extremo cuidado como você deve seguir.
-
-""")
-
+print("\n---------------------------------------------------\n")
 Thread.sleep(forTimeInterval: 2)
 while !authQuestion1 {
 print("""
 
-Sua p3 será na semana seguinte, \(NameStudent) escolhe: \n1.revisar a matéria com calma e descansar \n2.deixar pra revisar de última hora
+Tudo ficou calmo por um tempo mas a p3 está cada vez mais perto então chegou a hora de tomar sua decisão
+Essa matéria além de entediante é uma das mais complicadas do seu semestre
+Pense com extremo cuidado como você deve seguir. Sua p3 será na semana seguinte, \(NameStudent) escolhe:
+
+1. Revisar a matéria com calma e descansar
+2. Deixar pra revisar de última hora
 
 """)
 print("SEU FOCO: \(Life)")
 if let input = readLine(), let x = Int(input){
   switch x {
-  case 1:
-    Answer1 = "estudar" // boa
-    authQuestion1 = true
-    
-    
-  case 2:
-    Answer1 = "sair" // caso a resposta seja sair continua pra proxima pergunta
-    authQuestion1 = true
-    
+      case 1:
+        Answer1 = "estudar" // boa
+        authQuestion1 = true
+        
+        
+      case 2:
+        Answer1 = "sair" // caso a resposta seja sair continua pra proxima pergunta
+        authQuestion1 = true
+        
   default:
     print("Valor inválido,digite 1 ou 2 para responder")
   }
@@ -556,9 +459,13 @@ VerifyChoices()
 if  Answer1 == "estudar"{    // final bom
     print("""
 
+---------------------------------------------------
+
 Parabéns!
 Suas escolhas foram bem pensadas e \(NameStudent) conseguirá ter um próximo semestre tranquilo,além de ter tirado boas notas em
 suas avaliações.
+
+---------------------------------------------------
 
 """)
     authquestion2 = true
@@ -573,7 +480,10 @@ while !authquestion2 {
     print("""
       
 Seu professor demorou algum tempo até divulgar as notas da p3 e as médias, \(NameStudent) acabou ficando de exame mas já tinha programado uma
-viagem bem nessa data, então você: \n1.Mantem o plano da viagem mesmo que reprove na disciplina \n2.Ficar e fazer o exame
+viagem bem nessa data, então você:
+
+1. Mantem o plano da viagem mesmo que reprove na disciplina
+2. Ficar e fazer o exame
       
 """)
 print("SEU FOCO: \(Life)")
@@ -586,24 +496,34 @@ if let input = readLine(), let y = Int(input){
         Answer2 = "estudar" // printa  intermediario
         authquestion2 = true
   default:
-    print("Valor inválido,digite 1 ou 2 para responder")
+    print("Valor inválido, digite 1 ou 2 para responder")
     }
 VerifyChoices()
 
 if Answer2 == "sair"{
 print("""
        
+---------------------------------------------------
+
 Você falhou!
 Suas escolhas fazem com que reprove no semestre.
+
+---------------------------------------------------
        
 """)
 
   }
 if Answer2 == "estudar"{
         print("""
+
+---------------------------------------------------
+
 PARABÉNS !!!
 Você conseguiu sobreviver ao seu primeiro semestre!
 Mas tenha escolhas melhores no proximo semestre.
+
+---------------------------------------------------
+
 """)
     }
   }
